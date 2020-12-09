@@ -24,6 +24,7 @@ List<Book> masterBuku = [
       tahunterbit: '2008/12',
       halaman: '162',
       harga: 20000,
+      rate: 3.6,
       picture: 'assets/panduan-psikotes.jpg'),
   Book(
       judul: 'STOP MAKING MY HEART FLUTTER !',
@@ -31,6 +32,7 @@ List<Book> masterBuku = [
       tahunterbit: '2018/09',
       halaman: '80',
       harga: 25000,
+      rate: 3.2,
       picture: 'assets/stop-making-my-heart-flutter.jpg'),
   Book(
       judul: 'PEMROGRAMAN DATABASE VISUAL BASIC .NET',
@@ -38,6 +40,7 @@ List<Book> masterBuku = [
       tahunterbit: '2006/08',
       halaman: '428',
       harga: 48000,
+      rate: 4.2,
       picture: 'assets/vb.net.jpg'),
   Book(
       judul: 'PEMROGRAMAN JAVA',
@@ -45,6 +48,7 @@ List<Book> masterBuku = [
       tahunterbit: '2005/12',
       halaman: '388',
       harga: 55500,
+      rate: 4.7,
       picture: 'assets/pemrograman-java.jpg'),
   Book(
       judul: 'PEMROGRAMAN PHP 7 UNTUK PEMULA',
@@ -52,6 +56,7 @@ List<Book> masterBuku = [
       tahunterbit: '2017/04',
       halaman: '151',
       harga: 36800,
+      rate: 3.0,
       picture: 'assets/pemrograman-php7.jpg'),
   Book(
       judul: 'PEMROGRAMAN ANDROID & DATABASE',
@@ -59,6 +64,7 @@ List<Book> masterBuku = [
       tahunterbit: '2018/05',
       halaman: '500',
       harga: 94800,
+      rate: 5.0,
       picture: 'assets/android-database.jpg'),
   Book(
       judul: 'DASAR PEMROGRAMAN C++',
@@ -66,6 +72,7 @@ List<Book> masterBuku = [
       tahunterbit: '2006/07',
       halaman: '106',
       harga: 21000,
+      rate: 3.8,
       picture: 'assets/c++.jpg'),
   Book(
       judul: 'DASAR PEMROGRAMAN DELPHI',
@@ -73,6 +80,7 @@ List<Book> masterBuku = [
       tahunterbit: '2006/01',
       halaman: '579',
       harga: 15000,
+      rate: 3.3,
       picture: 'assets/delphi.jpg'),
   Book(
       judul: '5 PEMROGRAMAN DESAIN WEBSITE',
@@ -80,6 +88,7 @@ List<Book> masterBuku = [
       tahunterbit: '2019/11',
       halaman: '320',
       harga: 8000,
+      rate: 4.5,
       picture: 'assets/desain-website.jpg'),
   Book(
       judul: 'PEMROGRAMAN BAHASA ASSEMBLY',
@@ -87,5 +96,6 @@ List<Book> masterBuku = [
       tahunterbit: '2010/12',
       halaman: '260',
       harga: 842500,
+      rate: 4.7,
       picture: 'assets/assembly.jpg')
 ];
