@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:submission_flutter_pemula_dicoding_bookstore/model/book.dart';
 
+import 'detail_book.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -37,7 +39,10 @@ class MainPage extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
             margin: EdgeInsets.fromLTRB(16, 16, 16, 10),
-            child: Text('Buku Populer'),
+            child: Text(
+              'Buku Populer',
+              style: TextStyle(fontFamily: 'Roboto', fontSize: 24),
+            ),
           ),
           Container(
               height: 250,
@@ -45,76 +50,143 @@ class MainPage extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: books
-                    .map((e) => Container(
-                        margin: EdgeInsets.only(left: 16),
-                        height: 200,
-                        width: 200,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(8),
-                            boxShadow: [
-                              BoxShadow(
-                                  spreadRadius: 3,
-                                  color: Colors.black12,
-                                  blurRadius: 15)
-                            ]),
-                        child: Column(
+                    .map((e) => GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DetailBook(e);
+                            }));
+                          },
+                          child: Container(
+                              margin: EdgeInsets.only(
+                                  left: (e == books.first) ? 16 : 0, right: 16),
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                  boxShadow: [
+                                    BoxShadow(
+                                        spreadRadius: 3,
+                                        color: Colors.black12,
+                                        blurRadius: 15)
+                                  ]),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 150,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(e.picture),
+                                            fit: BoxFit.scaleDown)),
+                                  ),
+                                  Container(
+                                      margin:
+                                          EdgeInsets.fromLTRB(12, 12, 12, 6),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                              margin:
+                                                  EdgeInsets.only(bottom: 6),
+                                              child: Text(
+                                                e.judul,
+                                                style: TextStyle(
+                                                    fontFamily: 'Roboto'),
+                                              )),
+                                          Container(
+                                              child: Text(
+                                            e.harga.toString(),
+                                            style:
+                                                TextStyle(fontFamily: 'Roboto'),
+                                          ))
+                                        ],
+                                      )),
+                                ],
+                              )),
+                        ))
+                    .toList(),
+              )),
+          Container(
+            margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+            child: Text(
+              'Semua Buku',
+              style: TextStyle(fontFamily: 'Roboto', fontSize: 24),
+            ),
+          ),
+          Column(
+            children: mbooks
+                .map((e) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return DetailBook(e);
+                        }));
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
                           children: [
                             Container(
-                              height: 150,
+                              margin: EdgeInsets.only(left: 16),
+                              height: 200,
+                              width: 100,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: AssetImage(e.picture),
                                       fit: BoxFit.scaleDown)),
                             ),
-                            Container(
-                                margin: EdgeInsets.fromLTRB(12, 12, 12, 6),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(e.judul),
-                                    Text(e.harga.toString())
-                                  ],
-                                )),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                    width: MediaQuery.of(context).size.width -
+                                        100 -
+                                        2 * 16,
+                                    margin:
+                                        EdgeInsets.only(left: 12, bottom: 6),
+                                    child: Text(
+                                      e.judul,
+                                      overflow: TextOverflow.clip,
+                                      style: TextStyle(fontFamily: 'Roboto'),
+                                    )),
+                                Container(
+                                    margin:
+                                        EdgeInsets.only(left: 12, bottom: 6),
+                                    child: Text(
+                                      e.harga.toString(),
+                                      style: TextStyle(fontFamily: 'Roboto'),
+                                    )),
+                                Container(
+                                  margin: EdgeInsets.only(left: 12),
+                                  child: Row(
+                                    children: List<Widget>.generate(
+                                            5,
+                                            (index) => Icon(
+                                                  (index < e.rate.round())
+                                                      ? MdiIcons.star
+                                                      : MdiIcons.starOutline,
+                                                  size: 16,
+                                                  color: Colors.amber,
+                                                )) +
+                                        [
+                                          SizedBox(
+                                            width: 4,
+                                          ),
+                                          Text(
+                                            e.rate.toString(),
+                                            style:
+                                                TextStyle(fontFamily: 'Roboto'),
+                                          )
+                                        ],
+                                  ),
+                                )
+                              ],
+                            )
                           ],
-                        )))
-                    .toList(),
-              )),
-          Container(
-            margin: EdgeInsets.fromLTRB(16, 16, 16, 5),
-            child: Text('Semua Buku'),
-          ),
-          Column(
-            children: mbooks
-                .map((e) => Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 16),
-                          height: 200,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(e.picture),
-                                  fit: BoxFit.scaleDown)),
                         ),
-                        Column(
-                          children: [
-                            Text(e.judul),
-                            Text(e.harga.toString()),
-                            // Row(
-                            //   children: List<Widget>.generate(
-                            //       5,
-                            //       (index) => Icon(
-                            //             (index < e.rate
-                            //                 ? MdiIcons.star
-                            //                 : MdiIcons.starOutline),
-                            //             size: 16,
-                            //             color: Colors.amber,
-                            //           )),
-                            // )
-                          ],
-                        )
-                      ],
+                      ),
                     ))
                 .toList(),
           )

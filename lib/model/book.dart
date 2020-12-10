@@ -43,14 +43,6 @@ List<Book> masterBuku = [
       rate: 4.2,
       picture: 'assets/vb.net.jpg'),
   Book(
-      judul: 'PEMROGRAMAN JAVA',
-      penyusun: 'RIJALUL FIKRI,IPAM FUADINA ADAM,IMAM PRAKOSO,',
-      tahunterbit: '2005/12',
-      halaman: '388',
-      harga: 55500,
-      rate: 4.7,
-      picture: 'assets/pemrograman-java.jpg'),
-  Book(
       judul: 'PEMROGRAMAN PHP 7 UNTUK PEMULA',
       penyusun: 'JUBILEE ENTERPRISE',
       tahunterbit: '2017/04',
@@ -97,5 +89,13 @@ List<Book> masterBuku = [
       halaman: '260',
       harga: 842500,
       rate: 4.7,
-      picture: 'assets/assembly.jpg')
+      picture: 'assets/assembly.jpg'),
+  Book(
+      judul: 'PEMROGRAMAN JAVA',
+      penyusun: 'RIJALUL FIKRI,IPAM FUADINA ADAM,IMAM PRAKOSO,',
+      tahunterbit: '2005/12',
+      halaman: '388',
+      harga: 55500,
+      rate: 4.7,
+      picture: 'assets/pemrograman-java.jpg')
 ];
